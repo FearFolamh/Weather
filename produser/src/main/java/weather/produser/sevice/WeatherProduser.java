@@ -5,15 +5,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import weather.model.WeatherEvent;
 
+
+
 @Service
 public class WeatherProduser {
     private final Random random = new Random();
+
+    @Autowired
     private KafkaTemplate<String, WeatherEvent> kafkaTemplate;
     
     private static final List<String> Cities = List.of(
