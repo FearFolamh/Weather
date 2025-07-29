@@ -9,8 +9,10 @@ import weather.model.WeatherEvent;
 @Component
 @KafkaListener(topics = "weather-topic")
 public class WeatherConsumer {
+    
     @KafkaHandler
-    public void listen(WeatherEvent event){
+    
+    public void handle(WeatherEvent event){
         System.out.println("Получено событие погоды: " + event);
     }
 

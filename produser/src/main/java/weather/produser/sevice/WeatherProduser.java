@@ -49,6 +49,7 @@ public class WeatherProduser {
     public void sendWeatherEvent(){
         WeatherEvent event = generateWeatherEvent();
         kafkaTemplate.send("weather-topic", event.getCity(), event);
+        System.out.println("Отправленно " + event);
     }
 
 
@@ -58,6 +59,7 @@ public class WeatherProduser {
             getRandomCity(),
             getRandomStatus(),
             getRandomTemperature());
+            
 
     }
     
